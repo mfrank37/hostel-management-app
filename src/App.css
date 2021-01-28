@@ -1,0 +1,21 @@
+.header {
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home {
+  margin-right: 25%;
+  margin-left: 25%;
+}
+
+.does-not-meet {
+  background-color: #19C84A;
+}
+.meet {
+  background-color: #DCC812;
+}
+.exceed {
+  background-color: #FA6060;
+}
