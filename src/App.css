@@ -5,9 +5,10 @@
   align-items: center;
 }
 
-.home {
-  margin-right: 25%;
-  margin-left: 25%;
+.home, .rooms-view, .room-view {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 500px;
 }
 
 .does-not-meet {
@@ -18,4 +19,49 @@
 }
 .exceed {
   background-color: #FA6060;
+}
+.items-nav {
+  max-width: 300px;
+  margin: 50px auto auto auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+.move {
+  display: block;
+  font-size: 30px;
+  min-width: 50px;
+  background-color: #333;
+  text-align: center;
+  color: #FFF;
+  border-radius: 40%;
+}
+.left::before {
+  content: "\002B05";
+}
+.right::before {
+  content: "\0027A1";
+}
+.students-list {
+  max-width: 500px;
+  margin: auto;
+}
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 500px;
+}
+.placing-list, .moving-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+.placing-list > *, .moving-list > * {
+  list-style: none;
+}
+.room {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  background-color: #DDD;
 }

@@ -1,22 +1,20 @@
-import { Component, Fragment } from 'react';
-import Header from './components/header';
+import { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import { beds, rooms, roomTypes, students } from './data';
+import Home from './routes/Home';
+import Room from './routes/room';
+import Rooms from './routes/rooms';
+import Students from './routes/Students';
 
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <Header title='HOSTEL MANAGEMENT' />
-        <div className='home'>
-          <p>ADMITTED STUDENTS : <span className='does-not-meet'>{students.length}</span></p>
-          <p>AVAILABLE ROOMS   : <span className='meet'>{rooms.length}</span></p>
-          <p>AVAILABLE BEDS    : <span className='exceed'>{beds()}</span></p>
-          <ul>
-            { roomTypes.map((type) => <li>{type.size} bed-rooms = {type.count}</li>)}
-          </ul>
-        </div>
-      </Fragment>
+      <BrowserRouter>
+      <Route exact path='/' component={Home} />
+      <Route exact path='/rooms' component={Rooms} />
+      <Route path='/rooms/:name' component={Room} />
+      <Route path='/students' component={Students} />
+      </BrowserRouter>
     )
   }
 };
