@@ -38,13 +38,13 @@ class Room extends Component {
             <ul className='students-list'>
               { rooms[index].students.map(stud => <li>{stud}</li>)}
             </ul>
-            <p style={{textAlign: 'center'}}>PLACE NEW STUDENTS HERE</p>
+            <p style={{textAlign: 'center', backgroundColor: '#ccc'}}>PLACE NEW STUDENTS HERE</p>
           <div className='placing-list'>
-            <li className='move left'></li>{ newStudents().map(student => <li>{student}</li>) }<li className='move right'></li>
+            <li className='move left'></li>{ newStudents().map(student => <li className='stud'>{student}</li>) }<li className='move right'></li>
           </div>
-          <p style={{textAlign: 'center'}}>REPLACE/MOVE STUDENTS HERE</p>
+          <p style={{textAlign: 'center', backgroundColor: '#ccc'}}>REPLACE/MOVE STUDENTS HERE</p>
           <div className='moving-list'>
-            <li className='move left'></li>{ placedStudents().map(student => <li>{student}</li>) }<li className='move right'></li>
+            <li className='move left'></li>{ placedStudents().map(student => <li className='stud'>{student}</li>) }<li className='move right'></li>
           </div>
         </div>
       </Fragment>

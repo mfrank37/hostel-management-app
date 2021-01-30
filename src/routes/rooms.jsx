@@ -64,6 +64,7 @@ class Rooms extends Component {
     };
 
     const { viewRooms } = getParams(search);
+    
     return (
       <Fragment>
         <Header title='VIEW ROOMS' />
@@ -76,12 +77,12 @@ class Rooms extends Component {
         <div className='rooms-view'>
           {
             viewRooms.map((room) =>
-              <Link className='room' to={'/rooms/' + room.name}>
-                <p>
-                  Room     : { room.name } <br />
+              <Link className=' room' to={'/rooms/' + room.name}>
+              <li className={
+                room.beds > room.students.length ? 'does-not-meet' : room.beds < room.students.length ? 'exceed' : 'meet'
+              } style={{listStyle: 'none'}}>Room     : { room.name }</li>
                   students : { room.students.length }<br />
                   beds     : { room.beds }<br />
-                </p>
               </Link>
             )
           }

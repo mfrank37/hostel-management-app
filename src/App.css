@@ -10,6 +10,11 @@
   margin-left: auto;
   max-width: 500px;
 }
+.rooms-view {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 
 .does-not-meet {
   background-color: #19C84A;
@@ -45,7 +50,10 @@
 }
 .students-list {
   max-width: 500px;
+  display: flex;
+  flex-flow: row wrap;
   margin: auto;
+  justify-content: space-evenly;
 }
 nav {
   display: flex;
@@ -55,6 +63,7 @@ nav {
 .placing-list, .moving-list {
   display: flex;
   justify-content: space-evenly;
+  overflow-x: auto;
 }
 .placing-list > *, .moving-list > * {
   list-style: none;
@@ -63,5 +72,35 @@ nav {
   display: block;
   text-decoration: none;
   color: #333;
-  background-color: #DDD;
+  background-color: #F5F5F5;
+  width: 220px;
+  margin: unset;
+  margin-bottom: 5px;
+}
+.stud {
+  background-color: #ddd;
+  padding: 0 5px 0 5px;
+  margin: auto;
+  border-radius: 7px;
+}
+.stud:hover {
+  background: #126;
+  color: white;
+  cursor: pointer;
+}
+.student {
+  background: #eef;
+  width: 220px;
+  margin-bottom: 4px;
+}
+.low, .up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.student .name, .student .status {
+  width: 50%;
+}
+.status {
+  background-color: #19C84A;
 }

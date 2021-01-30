@@ -2,6 +2,7 @@ import {
   Component, Fragment
 } from "react";
 import Header from "../components/header";
+import Student from '../components/Student';
 import { students } from "../data";
 
 
@@ -13,9 +14,7 @@ class Students extends Component {
         <div className='students-list'>
           { 
             students.map((student) => 
-              <div>
-                { student }
-              </div>
+              <Student student={student} />
             ) 
           }
         </div>
