@@ -1,25 +1,59 @@
-import { Component } from 'react';
-import { rooms } from '../data';
+import { connect, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-class Student extends Component {
-  render() {
-    const { student } = this.props;
-    return (
-      <div className='student'>
-        <p>
-          <p className='up'><b className='name'>{student}</b> <span className='status'>PLACED</span></p>
-        </p>
-        <p className='low'>
-          <button>UNPLACE</button>
-          ROOM : 
-          <select>
-            <option selected> </option>
-            {rooms.map(room => room.students.includes(student) ? <option selected>{room.name}</option> : <option>{room.name}</option>)}
-          </select>
+
+const Student = (props) => {
+  const displaceStudent = async ({target}) => {
+    console.log(target);
+    dispatch({
+      type: 'DISPLACE_STUDENT',
+      student: parseInt(target.getAttribute('data-student')),
+      room: target.value
+    });
+  };
+  
+  const unplaceStudent = async ({target}) => {
+    dispatch({
+      type: 'UNPLACE_STUDENT',
+      student: parseInt(target.getAttribute('data-student'))
+    })
+  }
+
+  const dispatch = useDispatch();
+  const { rooms } = useSelector((state) => ({rooms: state.rooms}));
+  const { student } = props;
+  
+  return (
+    <div className='student'>
+      <div>
+        <p className='up'><b className='name'>{student.name}</b> 
+          {
+            rooms.some((room)=> room.students.includes(student.name))
+            ? <span className='status'>PLACED</span> 
+            : <span className='exceed'>NOT PLACED</span>
+          }
         </p>
       </div>
-    )
-  }
-}
+      <p className='low'>
+        {
+          rooms.some((room) => room.students.includes(student.name))
+          ? <button onClick={unplaceStudent} data-student={student.id}>UNPLACE</button>
+          : <button onClick={unplaceStudent} disabled data-student={student.id}>UNPLACE</button>
+        }
+        ROOM : 
+        <select onChange={displaceStudent} data-student={student.id}>
+          <option selected disabled></option>
+          {
+            rooms.map((room) => 
+              room.students.includes(student.name)
+              ? <option selected key={room.id} value={room.name}>{room.name}</option>
+              : <option key={room.id} value={room.name}>{room.name}</option>
+            )
+          }
+        </select>
+      </p>
+    </div>
+  )
+};
 
 export default Student;

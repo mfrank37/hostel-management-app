@@ -1,7 +1,6 @@
 import { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/header';
-import Navigation from '../components/navigation';
 import { beds, rooms, roomTypes, students } from '../data';
 
 class Home extends Component {
@@ -14,7 +13,7 @@ class Home extends Component {
           <Link to='/rooms'><p>AVAILABLE ROOMS   : <span className='meet'>{rooms.length}</span></p></Link>
           <p>AVAILABLE BEDS    : <span className='exceed'>{beds()}</span></p>
           <ul>
-          { roomTypes.map((type) => <li>{type.size} bed-rooms = {type.count}</li>) }
+          { roomTypes.map((type) => <li key={type.id}>{type.size} bed-rooms = {type.rooms.length}</li>) }
           </ul>
         </div>
       </Fragment>
