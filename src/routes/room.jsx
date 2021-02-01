@@ -57,7 +57,7 @@ const Room = (props) => {
           <p>BEDS AVAILABLE : { rooms[index].beds }</p>
           <p>STUDENTS PLACED HERE : { rooms[index].students.length }</p>
           <ul className='students-list'>
-            { rooms[index].students.map(stud => <li className='currently-here' onClick={removeStudentsFromHere}>{stud}</li>)}
+            { rooms[index].students.map(stud => <li key={stud} className='currently-here' onClick={removeStudentsFromHere}>{stud}</li>)}
           </ul>
           <p style={{textAlign: 'center', backgroundColor: '#ccc'}}>PLACE NEW STUDENTS HERE</p>
         <div className='placing-list'>

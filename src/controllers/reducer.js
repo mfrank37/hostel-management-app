@@ -1,4 +1,17 @@
-export default function handleActions(state, action) {
+import {beds, rooms, roomTypes, students}  from '../data';
+
+const bedsNumber = beds();
+
+const initialState = {
+  rooms,
+  beds,
+  students,
+  roomTypes,
+  bedsNumber
+}
+
+export default function reducer(state = initialState, action) {
+  console.log(action);
   let stud;
   switch (action.type) {
     case 'DISPLACE_STUDENT':
@@ -16,10 +29,7 @@ export default function handleActions(state, action) {
       state.students.find((std) => std.id === action.student).room = action.room;
       // take him/er to the room
       rooms.find((room) => room.name === action.room).students.push(stud.name);
-      return {
-        students: state.students,
-        rooms: state.rooms
-      }
+      return state;
     case 'UNPLACE_STUDENT':
       // remove him from the room
       if(typeof action.student === 'string') {
@@ -34,10 +44,7 @@ export default function handleActions(state, action) {
       console.log(list);
       state.rooms.find((room) => room.students.includes(stud.name)).students = Array.from(list);
       console.log(stud);
-      return {
-        students: state.students,
-        rooms: state.rooms
-      }
+      return state;
     case 'ADD_STUDENT_TO_ROOM':
       try {
         stud = state.students.find((std) => std.name === action.student);
@@ -51,10 +58,7 @@ export default function handleActions(state, action) {
       stud.room = action.room;
       state.rooms.find(room=> room.name === action.room).students.push(stud.name);
       state.students = state.students.map(STD=> STD.id === stud.id ? stud : STD);
-      return {
-        students: state.students,
-        rooms: state.rooms
-      }
+      return state;
     default:
       return state;
   }
