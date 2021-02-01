@@ -88,6 +88,9 @@ nav {
   color: white;
   cursor: pointer;
 }
+.stud:active {
+  background-color: #19C84A;
+}
 .student {
   background: #eef;
   width: 220px;
@@ -103,4 +106,18 @@ nav {
 }
 .status {
   background-color: #19C84A;
+}
+.currently-here {
+  list-style: none;
+  padding: 7px;
+  border-radius: 7px;
+  background: #19C84A;
+}
+.currently-here:hover {
+  background: #FA6060;
+  color: white;
+  cursor: pointer;
+}
+.currently-here:active {
+  background: red;
 }
