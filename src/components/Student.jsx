@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 
 
 const Student = (props) => {
+
   const displaceStudent = async ({target}) => {
-    console.log(target);
     dispatch({
       type: 'DISPLACE_STUDENT',
       student: parseInt(target.getAttribute('data-student')),
@@ -22,6 +22,7 @@ const Student = (props) => {
   const dispatch = useDispatch();
   const { rooms } = useSelector((state) => ({rooms: state.rooms}));
   const { student } = props;
+  const hasRoom = rooms.find(room=>room.name === student.room);
   
   return (
     <div className='student'>
@@ -41,16 +42,14 @@ const Student = (props) => {
           : <button onClick={unplaceStudent} disabled data-student={student.id}>UNPLACE</button>
         }
         ROOM : 
-        <select onChange={displaceStudent} data-student={student.id}>
-          <option selected disabled></option>
-          {
-            rooms.map((room) => 
-              room.students.includes(student.name)
-              ? <option selected key={room.id} value={room.name}>{room.name}</option>
-              : <option key={room.id} value={room.name}>{room.name}</option>
-            )
-          }
-        </select>
+          <select onChange={displaceStudent} data-student={student.id} value={ 
+              hasRoom ? rooms.includes(hasRoom) ? hasRoom.name : 'unplaced' : 'unplaced' 
+            }>
+            <option disabled value='unplaced'></option>
+            {
+              rooms.map((room) => <option key={room.id} value={room.name}>{room.name}</option>)
+            }          
+          </select>
       </p>
     </div>
   )

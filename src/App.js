@@ -12,7 +12,6 @@ import {beds, rooms, roomTypes, students}  from './data';
 import handleActions from './controllers/handleActions';
 
 const initialState = {
-  title: 42,
   rooms,
   beds,
   students,
@@ -21,6 +20,7 @@ const initialState = {
 
 function reducer(state = initialState, action){
   console.log(action);
+  console.log(state);
   return handleActions(state, action);  
 }
 
@@ -35,17 +35,12 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/rooms' component={Rooms} />
             <Route path='/rooms/:name' component={Room} />
-            <Route path='/students' component={Students} students={this.props.students}/>
+            <Route path='/students' component={Students} />
           </Switch>
         </BrowserRouter>
       </Provider>
     )
   }
 };
-
-const mapStateToProps = (state) => ({
-  rooms,
-  students
-})
 
 export default App;

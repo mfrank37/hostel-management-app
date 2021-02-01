@@ -1,7 +1,7 @@
 export const students = [
   {id: 1,  name: 'Frank',   room: 'A1'},
   {id: 2,  name: 'Marry',   room: 'B1'},
-  {id: 3,  name: 'Max',     room: 'B2'},
+  {id: 3,  name: 'Max',     room: ''  },
   {id: 4,  name: 'Thunder', room: 'B2'},
   {id: 5,  name: 'Tom',     room: 'B2'},
   {id: 6,  name: 'Jerry',   room: 'C1'},
@@ -10,7 +10,7 @@ export const students = [
   {id: 9,  name: 'Wendy',   room: 'C2'},
   {id:10,  name: 'Ammy',    room: 'C2'},
   {id:11,  name: 'Persie',  room: 'C2'},
-  {id:12,  name: 'Robin',   room: ''  },
+  {id:12,  name: 'Robin',   room: 'C2'},
   {id:13,  name: 'Cedro',   room: ''  },
   {id:14,  name: 'Paul',    room: ''  },
   {id:15,  name: 'Kelly',   room: ''  },

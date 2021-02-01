@@ -27,8 +27,8 @@ export default function handleActions(state, action) {
         state.students.find((std) => std.id === action.student).room = '';
         stud = state.students.find((std) => std.id === action.student);
         const list = new Set(rooms.find((room) => room.students.includes(stud.name)).students);
-        console.log(list);
         list.delete(stud.name);
+        console.log(list);
         rooms.find((room) => room.students.includes(stud.name)).students = Array.from(list);
         console.log(stud);
         return {
@@ -38,4 +38,4 @@ export default function handleActions(state, action) {
         default:
           return state;
   }
-}
+};
