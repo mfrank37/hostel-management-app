@@ -1,24 +1,14 @@
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-
+import { displaceStudent, unplaceStudent } from '../thunks';
 
 const Student = (props) => {
-
-  const displaceStudent = async ({target}) => {
-    dispatch({
-      type: 'DISPLACE_STUDENT',
-      student: parseInt(target.getAttribute('data-student')),
-      room: target.value
-    });
+  const handleDisplaceStudent = async ({target}) => {
+    displaceStudent(dispatch, target);
   };
-  
-  const unplaceStudent = async ({target}) => {
-    dispatch({
-      type: 'UNPLACE_STUDENT',
-      student: parseInt(target.getAttribute('data-student'))
-    })
-  }
-
+  const handleUnplaceStudent = async ({target}) => {
+    unplaceStudent(dispatch, target);
+  };
   const dispatch = useDispatch();
   const { rooms } = useSelector((state) => ({rooms: state.rooms}));
   const { student } = props;
@@ -38,11 +28,11 @@ const Student = (props) => {
       <p className='low'>
         {
           rooms.some((room) => room.students.includes(student.name))
-          ? <button onClick={unplaceStudent} data-student={student.id}>UNPLACE</button>
-          : <button onClick={unplaceStudent} disabled data-student={student.id}>UNPLACE</button>
+          ? <button onClick={handleUnplaceStudent} data-student={student.id}>UNPLACE</button>
+          : <button onClick={handleUnplaceStudent} disabled data-student={student.id}>UNPLACE</button>
         }
         ROOM : 
-          <select onChange={displaceStudent} data-student={student.id} value={ 
+          <select onChange={handleDisplaceStudent} data-student={student.id} value={ 
               hasRoom ? rooms.includes(hasRoom) ? hasRoom.name : 'unplaced' : 'unplaced' 
             }>
             <option disabled value='unplaced'></option>

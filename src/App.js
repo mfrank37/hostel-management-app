@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch } from 'react-router-dom/cjs/react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
-import reducer from './controllers/reducer';
+import reducer from './reducers';
 import routesComponents from './routes';
 import thunk from 'redux-thunk';
 

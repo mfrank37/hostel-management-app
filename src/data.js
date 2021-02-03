@@ -1,4 +1,4 @@
-export const students = [
+const students = [
   {id: 1,  name: 'Frank',   room: 'A1'},
   {id: 2,  name: 'Marry',   room: 'B1'},
   {id: 3,  name: 'Max',     room: ''  },
@@ -18,13 +18,13 @@ export const students = [
   {id: 17, name: 'Zoe',     room: ''  }
 ];
 
-export const roomSizes = Object.freeze({
+const roomSizes = Object.freeze({
   A: 1,
   B: 2,
   C: 4
 });
 
-export const rooms = [{
+const rooms = [{
     id: 1,
     name: 'A1',
     beds: roomSizes.A,
@@ -62,7 +62,7 @@ export const rooms = [{
   }
 ];
 
-export const roomTypes = [
+const roomTypes = [
   {
     id: 1,
     name: 'A',
@@ -83,10 +83,22 @@ export const roomTypes = [
   }
 ];
 
-export const beds = () => {
+const beds = () => {
   let bedsCount = 0;
   rooms.forEach((room) => {
     bedsCount += room.beds;
   });
   return bedsCount;
 };
+
+const bedsNumber = beds();
+
+const initialState = {
+  rooms,
+  beds,
+  students,
+  roomTypes,
+  bedsNumber
+};
+
+export default initialState;

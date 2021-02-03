@@ -14,11 +14,6 @@ const Students = () => {
           ) 
         }
       </div>
-      <div className='items-nav rooms'>
-        <li className='move left'></li>
-        <span>PAGE 1</span>
-        <li className='move right'></li>
-      </div>
     </>
   )
 };
