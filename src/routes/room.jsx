@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Header from '../components/header';
+import { placeStudent, removeStudents } from '../thunks';
 import Rooms from './rooms';
-
 
 const Room = (props) => {
 
-  // const { params } = this.props.match;
   const { name } = useParams();
   const { students } = useSelector((state) => ({students: state.students}));
   const { rooms } = useSelector((state) => ({rooms: state.rooms}));
@@ -34,17 +33,10 @@ const Room = (props) => {
   
   const dispatch = useDispatch();
   const placeStudentHere = ({target}) => {
-    dispatch({
-      type: 'ADD_STUDENT_TO_ROOM',
-      room: name,
-      student: target.innerHTML
-    });
+    placeStudent(dispatch, target, name);
   }
   const removeStudentsFromHere = ({target}) => {
-    dispatch({
-      type: 'UNPLACE_STUDENT',
-      student: target.innerHTML
-    });
+    removeStudents(dispatch, target, name);
   }
 
   let key = 1;
