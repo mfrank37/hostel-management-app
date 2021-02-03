@@ -1,3 +1,4 @@
+import { Route } from 'react-router-dom';
 import Home from './Home';
 import Rooms from './rooms';
 import Students from './Students';
@@ -22,4 +23,8 @@ const routes = [
   }
 ];
 
-export default routes;
+const routesComponents = routes.map(({path, component}, key) => 
+  <Route exact path={path} component={component} key={key} />
+);
+
+export default routesComponents;
