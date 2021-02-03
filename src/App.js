@@ -4,23 +4,20 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom/cjs/react-router-dom';
 import { createStore } from 'redux';
 import reducer from './controllers/reducer';
-import Home from './routes/Home';
-import Room from './routes/room';
-import Rooms from './routes/rooms';
-import Students from './routes/Students';
+import routes from './routes';
 
 const store = createStore(reducer);
 
 class App extends Component {
   render() {
+    const routesComponents = routes.map(({path, component}, key) => 
+      <Route exact path={path} component={component} key={key} />
+    );
     return (
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/rooms' component={Rooms} />
-            <Route path='/rooms/:name' component={Room} />
-            <Route path='/students' component={Students} />
+            {routesComponents}
           </Switch>
         </BrowserRouter>
       </Provider>
