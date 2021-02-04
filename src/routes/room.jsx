@@ -33,10 +33,10 @@ const Room = (props) => {
   
   const dispatch = useDispatch();
   const placeStudentHere = ({target}) => {
-    placeStudent(dispatch, target, name);
+    dispatch(placeStudent(target, name));
   }
   const removeStudentsFromHere = ({target}) => {
-    removeStudents(dispatch, target, name);
+    dispatch(removeStudents(target));
   }
 
   let key = 1;

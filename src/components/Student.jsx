@@ -4,10 +4,10 @@ import { displaceStudent, unplaceStudent } from '../thunks';
 
 const Student = (props) => {
   const handleDisplaceStudent = async ({target}) => {
-    displaceStudent(dispatch, target);
+    dispatch(displaceStudent(target));
   };
   const handleUnplaceStudent = async ({target}) => {
-    unplaceStudent(dispatch, target);
+    dispatch(unplaceStudent(target));
   };
   const dispatch = useDispatch();
   const { rooms } = useSelector((state) => ({rooms: state.rooms}));
