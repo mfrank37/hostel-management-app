@@ -3,9 +3,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch } from 'react-router-dom/cjs/react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import reducer from './reducers';
 import routesComponents from './routes';
-import thunk from 'redux-thunk';
+import Login from './routes/Login';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -16,6 +17,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             {routesComponents}
+            <Login exact path='/login' />
           </Switch>
         </BrowserRouter>
       </Provider>
