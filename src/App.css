@@ -121,3 +121,7 @@ nav {
 .currently-here:active {
   background: red;
 }
+.add-new {
+  max-width: 500px;
+  margin: auto;
+}

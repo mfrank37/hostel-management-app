@@ -98,6 +98,7 @@ const initialState = {
   beds,
   students,
   roomTypes,
+  roomSizes,
   bedsNumber
 };
 

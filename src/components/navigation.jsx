@@ -7,7 +7,8 @@ class Navigation extends Component {
       <nav>
         <Link to='/'>Home</Link> |
         <Link to='/students'>Students</Link> |
-        <Link to='/rooms'>Rooms</Link>
+        <Link to='/rooms'>Rooms</Link> |
+        <Link to='/create'>ADD STUDENTS / ROOMS</Link>
       </nav>
     )
   };

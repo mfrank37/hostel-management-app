@@ -7,6 +7,7 @@ import Header from '../components/header';
 const Rooms = (props) => {
 
   const { rooms } = useSelector((state) => ({rooms: state.rooms}));
+  rooms.sort((a, b) => a.name < b.name ? -1 : a.name < b.name ? 1 : 0);
 
   return (
     <>

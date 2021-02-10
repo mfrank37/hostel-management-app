@@ -3,6 +3,7 @@ import Home from './Home';
 import Rooms from './rooms';
 import Students from './Students';
 import Room from './room';
+import CreateForm from './CreateForm';
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
   {
     path: '/students',
     component: Students
+  },
+  {
+    path: '/create',
+    component: CreateForm
   }
 ];
 

@@ -3,7 +3,6 @@ export default (state, action) => {
   try {
     stud = state.students.find((std) => std.name === action.student);
     const removeFrom = new Set(state.rooms.find((room) => room.students.includes(stud.name)).students);
-    console.log(removeFrom);
     removeFrom.delete(stud.name);
     state.rooms.find((room) => room.students.includes(stud.name)).students = Array.from(removeFrom);
   } catch (e) {

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { displaceStudent, unplaceStudent } from '../thunks';
+import { deleteStudent, displaceStudent, unplaceStudent } from '../thunks';
 
 const Student = (props) => {
   const handleDisplaceStudent = async ({target}) => {
@@ -8,6 +8,9 @@ const Student = (props) => {
   };
   const handleUnplaceStudent = async ({target}) => {
     dispatch(unplaceStudent(target));
+  };
+  const handleRemoveStudent = ({target}) => {
+    dispatch(deleteStudent(target));
   };
   const dispatch = useDispatch();
   const { rooms } = useSelector((state) => ({rooms: state.rooms}));
@@ -24,6 +27,7 @@ const Student = (props) => {
             : <span className='exceed'>NOT PLACED</span>
           }
         </p>
+        <button data-id={student.id} onClick={handleRemoveStudent}>REMOVE</button>
       </div>
       <p className='low'>
         {

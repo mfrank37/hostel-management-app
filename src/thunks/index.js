@@ -1,4 +1,4 @@
-import { ADD_STUDENT_TO_ROOM, DISPLACE_STUDENT, UNPLACE_STUDENT } from "../actions";
+import { ADD_NEW_ROOM, ADD_NEW_STUDENT, ADD_STUDENT_TO_ROOM, DISPLACE_STUDENT, DELETE_STUDENT, UNPLACE_STUDENT } from "../actions";
 
 export const placeStudent = (target, name) => {
   // you can do async fns / promises
@@ -28,5 +28,26 @@ export const displaceStudent = (target) => {
     type: DISPLACE_STUDENT,
     student: parseInt(target.getAttribute('data-student')),
     room: target.value
+  }
+};
+
+export const addNewRoom = (size) => {
+  return {
+    type: ADD_NEW_ROOM,
+    size: parseInt(size)
+  }
+};
+
+export const addNewStudent = (name) => {
+  return {
+    type: ADD_NEW_STUDENT,
+    name: name
+  }
+};
+
+export const deleteStudent = (target) => {
+  return {
+    type: DELETE_STUDENT,
+    studentId: parseInt(target.getAttribute('data-id'))
   }
 };
